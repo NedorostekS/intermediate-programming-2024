@@ -65,12 +65,17 @@ void print_rectangle(unsigned int sirka, unsigned int vyska) {
 // ***
 // ****
 void print_pyramid_l(unsigned int height) {
-    int nos = 1;
+    int ph = 1;
+    int sv = ph;
     while (height > 0) {
-
-
-
-
+        while (sv > 0) {
+            std::cout << "*";
+            sv--;
+        }
+        std::cout << "" << '\n';
+        ph++;
+        sv = ph;
+        height--;
     }
 }
 
@@ -80,7 +85,11 @@ void print_pyramid_l(unsigned int height) {
 //  ***
 // ****
 void print_pyramid_r(unsigned int height) {
+    int pocet_mezer;
+    int pocet_hvezd;
+    
 }
+
 
 // Funkce vypíše takovýto trojúhelník o zadané výšce
 //    *
