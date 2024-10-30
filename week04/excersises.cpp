@@ -88,6 +88,20 @@ void print_pyramid_r(unsigned int height) {
     int pocet_mezer;
     int pocet_hvezd;
     
+    for (int i = 0; i < height; i++) {
+        pocet_mezer = height - i - 1;
+        pocet_hvezd = i + 1;
+
+        for (int x = 0; x < pocet_mezer; x++) {
+            std::cout << " ";
+        }
+
+        for (int y = 0; y < pocet_hvezd; y++) {
+            std::cout << "*";
+        }
+        std::cout << "" << '\n';
+
+    }
 }
 
 
@@ -97,6 +111,22 @@ void print_pyramid_r(unsigned int height) {
 //  *****
 // *******
 void print_pyramid(unsigned int height) {
+    int pocet_mezer;
+    int pocet_hvezd;
+
+    for (int i = 0; i < height; i++) {
+        pocet_mezer = height - i - 1;           
+        pocet_hvezd = 2 * i + 1;                
+
+        for (int x = 0; x < pocet_mezer; x++) {
+            std::cout << " ";
+        }
+
+        for (int y = 0; y < pocet_hvezd; y++) {
+            std::cout << "*";
+        }
+        std::cout << "" << '\n';
+    }
 }
 
 // Funkce vypíše takovýto trojúhelník o zadané výšce
@@ -105,6 +135,22 @@ void print_pyramid(unsigned int height) {
 //   ***
 //    *
 void print_pyramid_inverse(unsigned int height) {
+    int pocet_mezer;
+    int pocet_hvezd;
+
+    for (int i = 0; i < height; i++) {
+        pocet_mezer = i;
+        pocet_hvezd = 2 * (height - i) - 1;
+
+        for (int x = 0; x < pocet_mezer; x++) {
+            std::cout << " ";
+        }
+
+        for (int y = 0; y < pocet_hvezd; y++) {
+            std::cout << "*";
+        }
+        std::cout << "" << '\n';
+    }
 }
 
 int main() {
