@@ -60,11 +60,12 @@ int findMaxPoly(int low, int high) {
     int maxValue = poly(low);  
     int maxX = low;
 
-    for (int x = low + 1; x <= high; x++) {
+
+    for (int x = low + 1; x <= high; x++) { //postupně prochází hodnoty x od low do high
         int value = poly(x);
         if (value > maxValue) {
             maxValue = value;
-            maxX = x;  // Uložíme x, pro které je poly(x) maximální
+            maxX = x;  // uložení maximálního x
         }
     }
 
