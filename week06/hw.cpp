@@ -1,4 +1,6 @@
 #include <cassert>
+#include <iostream>
+#include <cmath>
 // TODO: doplťe co potřebujete
 
 
@@ -14,6 +16,34 @@
 // + 2 = 1234⟧.  Proto ‹power_digit_sum(1234)› získáme jako ⟦3¹ + 4²
 // + 1³ + 2⁴ = 36⟧.
 
+void power_digit_sum(int number) {
+    int digits[32]; 
+    int index = 0;
+
+    // převedení number do sedmičkové soustavy
+    while (number > 0) {
+        digits[index++] = number % 7; // uložení zbytku do digits
+        number /= 7; // posun na další
+    }
+
+    
+    int finalDigits[32];
+    int finalIndex = 0;
+    int ans = 0;
+
+    // obrácení pořadí indexů
+    for (int i = index - 1; i >= 0; i--) {
+        finalDigits[finalIndex++] = digits[i];
+    }
+
+    
+    for (int i = 0; i < finalIndex; i++) {
+        // std::cout << "Cifra: " << finalDigits[i] << " má index: " << i << std::endl;
+        ans = ans + pow(finalDigits[i], (i + 1));
+    }
+    std::cout << ans << std::endl;
+}
+
 
 
 // Napište funkci, která najde celé číslo ‹x›, které leží mezi
@@ -24,6 +54,23 @@
 
 int poly(int x) {
     return 10 + 30 * x - 15 * x * x * x + x * x * x * x * x;
+}
+
+int findMaxPoly(int low, int high) {
+    int maxValue = poly(low);  
+    int maxX = low;
+
+    for (int x = low + 1; x <= high; x++) {
+        int value = poly(x);
+        if (value > maxValue) {
+            maxValue = value;
+            maxX = x;  // Uložíme x, pro které je poly(x) maximální
+        }
+    }
+
+    std::cout << maxX << std::endl;
+    return 0;
+
 }
 
 
@@ -59,4 +106,23 @@ int first_day(int year) {
     int years = year - 1601;
     int offset = years + years / 4 - years / 100 + years / 400;
     return offset % 7;
+}
+
+bool isLeapYear(int year) {
+    return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+}
+
+int working_days_in_a_year(int year) {
+
+    return 0;
+}
+
+int main() {
+
+    power_digit_sum(1234);
+    findMaxPoly(-5, 1748);
+    working_days_in_a_year(2024);
+    //std::cout << first_day(2024) << std::endl;
+    //std::cout << isLeapYear(2024) << std::endl;
+
 }
