@@ -22,8 +22,6 @@ int sum(std::vector<int> data) {
         a = a + now;
     }
 
-    //std::cout << a << std::endl;
-
     return a;
 }
 
@@ -91,7 +89,6 @@ std::vector<int> rotateRight(std::vector<int> data, int count) {
     count = count % data.size();
 
     for (std::size_t i = count; i < data.size(); i++) {
-        //std::cout << i << std::endl;
         rotate_array.push_back(data[i]);
     }
     for (int i = 0; i < count; i++) {
