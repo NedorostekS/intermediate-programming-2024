@@ -21,14 +21,43 @@ void print(std::vector<int> data) {
  * vzestupně seřazeného seznamu
  * */
 std::vector<int> merge(std::vector<int> a, std::vector<int> b) {
-    return {};
+    std::vector<int> mergeArray = {};
+    std::size_t arrayOne = 0;
+    std::size_t arrayTwo = 0;
+
+    for (std::size_t i = 0; i < (a.size() + b.size()); i++ ) {
+        
+        if ((a[arrayOne] > b[arrayTwo]) && (arrayTwo < b.size())) {
+            mergeArray.push_back(b[arrayTwo]); 
+            arrayTwo++;
+        } else if ((a[arrayOne] < b[arrayTwo]) && (arrayOne < a.size())) {
+            mergeArray.push_back(a[arrayOne]);
+            arrayOne++;
+        } else {
+            if ((arrayOne >= a.size()) || (a[arrayOne] == b[arrayTwo])) {
+                mergeArray.push_back(b[arrayTwo]);
+                arrayTwo++;
+            } else if (arrayTwo >= b.size()) {
+                mergeArray.push_back(a[arrayOne]);
+                arrayOne++;
+            }
+        } 
+    }
+
+    return mergeArray;
 }
 
 /* Napište funkci histogram, která dostane pole čísel z rozsahu [0-100), a vrátí nové pole takové, že
  * na i-té pozici nového seznamu bude uložen počet výskytů čísla i ve vstupním poli.
  */
 std::vector<int> histogram(std::vector<int> data) {
-    return {};
+    std::vector<int> ans(100, 0);
+
+    for (size_t i = 0; i < data.size(); i++) {
+        int num = data[i];
+        ans[num]++;
+    }
+    return ans;
 }
 
 // Napište (čistou) funkci, která simuluje jeden krok výpočtu
@@ -91,7 +120,7 @@ std::vector<bool> cellular_step(std::vector<bool> input) {
 int main() {
     std::vector<int> vec1 = { 1, 9, 4, 8, 4, 0, 9, 2, 3, 5, 6 };
     std::vector<int> asc1 = { 0, 2, 4, 7, 8 };
-    std::vector<int> asc2 = { 1, 3, 5, 6, 7, 9 };
+    std::vector<int> asc2 = { 1, 3, 5, 6, 7, 9};
     std::vector<int> vec2 = { 43, 93, 76, 49, 11,  7, 70, 20, 43, 36,
                               73, 47, 77, 48, 91, 46, 31, 78, 63, 61,
                                7, 88, 42, 62, 84, 29, 61, 28, 18, 41,
