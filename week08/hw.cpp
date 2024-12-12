@@ -28,13 +28,13 @@ std::vector<int> merge(std::vector<int> a, std::vector<int> b) {
     for (std::size_t i = 0; i < (a.size() + b.size()); i++ ) {
         
         if ((a[arrayOne] > b[arrayTwo]) && (arrayTwo < b.size())) {
-            mergeArray.push_back(b[arrayTwo]); 
+            mergeArray.push_back(b[arrayTwo]);
             arrayTwo++;
         } else if ((a[arrayOne] < b[arrayTwo]) && (arrayOne < a.size())) {
             mergeArray.push_back(a[arrayOne]);
             arrayOne++;
         } else {
-            if ((arrayOne >= a.size()) || (a[arrayOne] == b[arrayTwo])) {
+            if ((arrayOne >= a.size()) || (a[arrayOne] == b[arrayTwo])) { 
                 mergeArray.push_back(b[arrayTwo]);
                 arrayTwo++;
             } else if (arrayTwo >= b.size()) {
@@ -51,7 +51,11 @@ std::vector<int> merge(std::vector<int> a, std::vector<int> b) {
  * na i-té pozici nového seznamu bude uložen počet výskytů čísla i ve vstupním poli.
  */
 std::vector<int> histogram(std::vector<int> data) {
-    std::vector<int> ans(100, 0);
+    std::vector<int> ans = {};
+
+    for (int i = 0; i < 100; i++) {
+        ans.push_back(0);
+    }
 
     for (size_t i = 0; i < data.size(); i++) {
         int num = data[i];
